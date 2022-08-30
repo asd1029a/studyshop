@@ -1,10 +1,7 @@
 package com.shop.entity;
 
 import com.shop.constant.ItemSellStatus;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -14,21 +11,27 @@ import java.time.LocalDateTime;
 @Setter
 @ToString
 @AllArgsConstructor
+@NoArgsConstructor
 public class Item extends BaseEntity {
 
-    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "item_id")
     private Long id;
 
+    @Column(nullable = false, length = 50)
     private String itemNm;
 
+    @Column(nullable = false)
     private int price;
 
+    @Column(nullable = false)
     private int stockNumber;
 
+    @Lob
+    @Column(nullable = false)
     private String itemDetail;
 
+    @Enumerated(EnumType.STRING)
     private ItemSellStatus itemSellStatus;
 
-    protected Item() {}
 }
