@@ -14,6 +14,14 @@ public class MemberService {
 
     @Transactional
     public Member saveMember(Member member) {
+        vaildateDuplicateMember(member);
+        return memberRepository.save(member);
+    }
 
+    private void vaildateDuplicateMember(Member member) {
+        Member findMember = memberRepository.findByEmail(member.getEmail());
+        if(findMember != null) {
+            throw new IllegalStateException("이미 가입된 회원입니다.");
+        }
     }
 }
