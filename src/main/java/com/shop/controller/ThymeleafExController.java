@@ -65,20 +65,21 @@ public class ThymeleafExController {
         return "thymeleafEx/thymeleafEx04";
     }
 
-    @GetMapping("ex05")
+    @GetMapping("/ex05")
     public String thymeleafExample05() {
         return "thymeleafEx/thymeleafEx05";
     }
 
-    @GetMapping("ex06")
+    @GetMapping("/ex06")
     public String thymeleafExample06(String param1, String param2, Model model) {
         model.addAttribute("param1", param1);
         model.addAttribute("param2", param2);
         return "thymeleafEx/thymeleafEx06";
     }
 
-    @GetMapping("ex07")
+    @GetMapping("/ex07")
     public String thymeleafExample07() {
+
         return "thymeleafEx/thymeleafEx07";
     }
 }
