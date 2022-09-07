@@ -28,6 +28,9 @@ public class Member {
 
     private String address;
 
+//    @OneToOne(mappedBy = "member")
+//    private Cart cart;
+
     @Enumerated(EnumType.STRING)
     private Role role;
 
@@ -38,7 +41,7 @@ public class Member {
         member.setAddress(memberFormDto.getAddress());
         String password = passwordEncoder.encode(memberFormDto.getPassword());
         member.setPassword(password);
-        member.setRole(Role.USER);
+        member.setRole(Role.ADMIN);
         return member;
     }
 }
